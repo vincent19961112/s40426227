@@ -147,29 +147,19 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">網路連線設定 << <a href='網路連線設定.html'>Previous</a> <a href='倉儲改版.html'>Next</a> >> 倉儲改版<br /><h1>配置可攜程式環境</h1>
-<p><br/>取得 Windows 10 64 位元環境下的可攜程式環境 (下載 2019_cdb_w5.7z), 下載後解開目錄, 放入 USB3.0 規格以上的隨身碟或隨身硬碟.</p>
-<p>以滑鼠點擊 start.bat 開啟可攜隨身系統, 以 stop.bat 關閉可攜隨身系統, 隨身碟必須在關閉所有應用程式執行下, 才可正常退出.</p>
-<p>了解基本的 DOS (Disk Operating System) 指令</p>
-<p>C:\&gt; 符號為 DOS 命令列視窗的回應 (Prompt), 表示目前在 C 槽硬碟的 \ 根目錄, 若要切換到 Y 槽, 則在電腦的回應後, 輸入 Y:, 命令列將轉為</p>
-<p>Y:\&gt;</p>
-<p>若要更換目錄, 則使用 cd, 也就是 change directory 的意思, 例如:</p>
-<p>Y:\&gt;cd tmp</p>
-<p>表示要從 Y 槽的根目錄更換到 tmp 目錄, 也就是</p>
-<p>Y:\tmp&gt;</p>
-<p>若要再回到 Y 槽的根目錄, 可以使用 cd ..</p>
-<p>表示要從目前所在目錄, 往上跳回一個目錄, 也就是重新回到 Y 槽的根目錄.</p>
-<p>另外, 無論目前位於哪一個子目錄, 也可以使用 cd \</p>
-<p>直接回到根目錄.</p>
-<p>或者從 Y:\&gt; 直接使用</p>
-<p>cd \tmp\repo\ssh\wcm2019</p>
-<p>直接從 Y 槽的根目錄, 跳進 Y:\tmp\repo\ssh\wcm2019&gt;</p>
-<p>此外, 常用的 DOS 指令有:</p>
-<p>dir - 列出目前所在目錄的內容</p>
-<p>mkdir - 隨後加上要建立目錄的名稱, 可以建立目錄</p>
-<p>cls - clear screen, 清除目前的命令列顯示的內容</p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/a_hXbj98JwI" width="560"></iframe></p>
-<p></p><br />網路連線設定 << <a href='網路連線設定.html'>Previous</a> <a href='倉儲改版.html'>Next</a> >> 倉儲改版</div>
+    <div id="tipue_search_content">moblie 內容 << <a href='moblie 內容.html'>Previous</a> <a href='bs4應用.html'>Next</a> >> bs4應用<br /><h1>Cmsimfly架構</h1>
+<p>CMSimfly 以 Python 3 編寫, 利用 Flask 網路框架可以在伺服器運行, 讓使用者利用瀏覽器擷取動態 WWW 伺服器所送至近端的 html 加上 Javascript 程式碼, 然後在瀏覽器中顯示網際內容編輯器 (採用 tinymce4).</p>
+<p>在使用者能夠透過 tinymce4 編輯各 CMSimfly 動態網際頁面之前, CMSimfly 利用 Beautiflysoup 4 對 config/content.htm 進行分頁, 然後將 H1 標註中的文字當作第一階的頁面, H2 與 H3 標註內容則當作第二階與第三階的頁面標題, 而標題與標題之間的 html 與 Javascript 則分別當作各階次頁面的內容.</p>
+<p>因此 CMSimfly 可以在任何支援 Python 3 、Flask 與 Beautifulsoup 4 的環境中啟動 WWW 伺服器 (即在近端以 python wsgi.py 執行, 或在遠端以 uwsgi 與 nginx 執行 wsgi.py 中的 application), 接著使用者就可以根據伺服器啟動時所使用電腦的 IP 與埠號進行連線.</p>
+<p>使用者連線後, Beautifulsoup 即對 config/content.htm 分頁, 然後根據頁面配置讓使用者在瀏覽器中使用 login 登入, 或者以動態的方式檢視各階次的分頁.</p>
+<p>當使用者透過 login 登入 CMSimfly 成功後, 便可以指定頁面進行編輯, 修改後內容將存入 config/content.htm, 而尚未改版前的 content.htm 則改名為 content_backup.htm, 此一功能是防止 CMSimfly 因頁面解讀錯誤時, 誤刪資料時, 使用者可以從 content_backup.htm 取回上一版的資料內容.</p>
+<h4>動態轉靜態內容</h4>
+<p>由於動態 CMSimfly 只能在 Python3 環境中運行, 而某些免費的雲端服務所提供的 WWW 伺服器僅提供 html 加上 Javascript 伺服, 因此為了讓 CMSimfly 動態系統的內容, 能夠將內容送到這些只提供 WWW 伺服器的系統中執行, CMSimfly 加入 generate_pages 的功能, 也就是根據 config/content.htm 中各頁面的標題與資料, 以 Beautifulsoup4 再結合 lxml 模組, 將 content.htm 疊上各頁面所選定的 css 與其他配置頁面格式的 Javascript, 轉成位於 content 目錄中的靜態網站內容, 此一包含 index.html 的各頁面 html 檔案, 可以在任何只支援 html 伺服器的環境中運行, 例如: Github Pages 或 Fossil SCM 中的 doc 伺服頁面功能.</p>
+<p>截至目前的說明, 希望啟動 CMSimfly 動態運行, 需要<span> </span><span>Python 3 、Flask 與 Beautifulsoup 4 , 若要將動態內容轉為靜態內容, 則額外需要 lxml 模組.</span></p>
+<p><span>Python 3 在隨身系統的模組安裝指令為:</span></p>
+<p><span>pip install flask bs4 lxml</span></p>
+<p><span>表示要利用 pip 安裝 flask, bs4 與 lxml 模組</span></p>
+<br />moblie 內容 << <a href='moblie 內容.html'>Previous</a> <a href='bs4應用.html'>Next</a> >> bs4應用</div>
         
     <!-- footer -->
       <div class="container">
