@@ -147,15 +147,13 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">倉儲改版 << <a href='倉儲改版.html'>Previous</a> <a href='Cmsimfly架構.html'>Next</a> >> Cmsimfly架構<br /><h1>moblie 內容</h1>
-<p>參考倉儲:<span> </span><a href="https://github.com/mdecourse/acmsimfly">https://github.com/mdecourse/acmsimfly</a></p>
-<p>參考網站:</p>
-<p><a href="http://mde.tw/acmsimfly">http://mde.tw/acmsimfly</a></p>
-<p><a href="https://github.com/BlackrockDigital">https://github.com/BlackrockDigital</a></p>
-<p><a href="https://themewagon.com/theme_tag/bootstrap-4-templates/">https://themewagon.com/theme_tag/bootstrap-4-templates/</a></p>
-<p><a href="https://github.com/kamranahmedse/developer-roadmap (blog)">https://github.com/kamranahmedse/developer-roadmap (blog)</a></p>
-<p><br/>學習如何使用 CMSimfly, 在網站中加入各種內容 (導入 Bootstrap frontend framework)<br/><br/>使用 Flask, bs4 與 lxml 模組<br/><br/>了解 CMSimfly 如何建構, 並且嘗試修改現有功能, 除錯或建立自己的網際內容管理系統</p>
-<br />倉儲改版 << <a href='倉儲改版.html'>Previous</a> <a href='Cmsimfly架構.html'>Next</a> >> Cmsimfly架構</div>
+    <div id="tipue_search_content">Cmsimfly架構 << <a href='Cmsimfly架構.html'>Previous</a> <a href='bs4應用.html'>Next</a> >> bs4應用<br /><h1>動態轉靜態內容</h1>
+<p>由於動態 CMSimfly 只能在 Python3 環境中運行, 而某些免費的雲端服務所提供的 WWW 伺服器僅提供 html 加上 Javascript 伺服, 因此為了讓 CMSimfly 動態系統的內容, 能夠將內容送到這些只提供 WWW 伺服器的系統中執行, CMSimfly 加入 generate_pages 的功能, 也就是根據 config/content.htm 中各頁面的標題與資料, 以 Beautifulsoup4 再結合 lxml 模組, 將 content.htm 疊上各頁面所選定的 css 與其他配置頁面格式的 Javascript, 轉成位於 content 目錄中的靜態網站內容, 此一包含 index.html 的各頁面 html 檔案, 可以在任何只支援 html 伺服器的環境中運行, 例如: Github Pages 或 Fossil SCM 中的 doc 伺服頁面功能.</p>
+<p>截至目前的說明, 希望啟動 CMSimfly 動態運行, 需要<span> </span><span>Python 3 、Flask 與 Beautifulsoup 4 , 若要將動態內容轉為靜態內容, 則額外需要 lxml 模組.</span></p>
+<p><span>Python 3 在隨身系統的模組安裝指令為:</span></p>
+<p><span>pip install flask bs4 lxml</span></p>
+<p><span>表示要利用 pip 安裝 flask, bs4 與 lxml 模組</span></p>
+<br />Cmsimfly架構 << <a href='Cmsimfly架構.html'>Previous</a> <a href='bs4應用.html'>Next</a> >> bs4應用</div>
         
     <!-- footer -->
       <div class="container">
